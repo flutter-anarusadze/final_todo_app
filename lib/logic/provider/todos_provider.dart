@@ -20,16 +20,24 @@ class TodosProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  void addTodo(Todos todos) async {
-    await todoRepository.addTodo(todos);
+  void addTodo(Todos todo) async {
+    await todoRepository.addTodo(todo);
+    _todos.add(todo);
+    notifyListeners();
   }
 
   void deleteTodo(int id) async {
     await todoRepository.deleteTodo(id);
+    var todo = _todos.firstWhere((element) => element.id == id);
+    _todos.remove(todo);
+    notifyListeners();
   }
 
   void updateTodos(Todos todos) async {
     await todoRepository.updateTodo(todos);
+    var index = _todos.indexOf(todos);
+    _todos[index] = todos;
+    notifyListeners();
   }
 
 }

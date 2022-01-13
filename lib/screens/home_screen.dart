@@ -11,7 +11,6 @@ class HomeScreen extends StatefulWidget {
 
   static const routeName = '/home_screen';
 
-
   @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
@@ -30,8 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Provider.of<TodosProvider>(context, listen: false).getTodos();
     var todos = Provider.of<TodosProvider>(context).todos;
-    return Consumer<TodosProvider>(
-      builder: (context, cart, child) {
         return Scaffold(
             resizeToAvoidBottomInset: false,
             body: Stack(
@@ -55,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 showModalBottomSheet<void>(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return addNoteBottomSheet();
+                                    return AddNoteBottomSheet();
                                   },
                                 );
                               },
@@ -88,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     showModalBottomSheet<void>(
                                       context: context,
                                       builder: (BuildContext context) {
-                                        return viewNoteBottomSheet();
+                                        return viewNoteBottomSheet(todos[index]);
                                       },
                                     );
                                   },
@@ -116,7 +113,5 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ));
-      },
-    );
   }
 }

@@ -1,6 +1,7 @@
+import 'package:anarusadze_todo_app/data/models/todos.dart';
 import 'package:flutter/material.dart';
 
-dynamic viewNoteBottomSheet() {
+dynamic viewNoteBottomSheet(Todos todos) {
   return Container(
     padding: const EdgeInsets.all(30),
     height: 500,
@@ -10,27 +11,27 @@ dynamic viewNoteBottomSheet() {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
-            child: Text("SUBMIT",
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+            child: Text(todos.id.toString(),
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 25)),
+                style: const TextStyle(color: Colors.white, fontSize: 25)),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
-            child: Text("SUBMIT",
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+            child: Text(todos.todo,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 20)),
+                style: const TextStyle(color: Colors.white, fontSize: 20)),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
-            child: Text("SUBMIT",
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+            child: Text(todos.todo,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white, fontSize: 18)),
+                style: const TextStyle(color: Colors.white, fontSize: 18)),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(vertical: 7, horizontal: 20),
-            child: Text("SUBMIT",
+            child: Text(todos.description,
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 15)),
           ),
@@ -105,7 +106,9 @@ dynamic viewNoteBottomSheet() {
                     style: TextStyle(fontSize: 16, color: Color(0xff429591))),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
-                onPressed: () {},
+                onPressed: () {
+
+                },
               ),
             ),
           )

@@ -4,7 +4,7 @@ class Todos {
   final int id;
   final String todo;
   final String description;
-  final Bool isDone;
+  final bool isDone;
 
   Todos({
     required this.id,
