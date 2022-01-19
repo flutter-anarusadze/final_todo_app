@@ -1,6 +1,7 @@
 import 'package:anarusadze_todo_app/data/models/todos.dart';
 import 'package:anarusadze_todo_app/logic/provider/todos_provider.dart';
 import 'package:anarusadze_todo_app/widgets/bottom_sheets/edit_note_bottomsheet.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -36,25 +37,25 @@ class _viewNoteScreenState extends State<ViewNoteBottomSheet> {
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               child: Text(widget.todos.id.toString(),
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 25)),
+                  style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 25))),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               child: Text(widget.todos.todo,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+                  style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 20))),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               child: Text(widget.todos.todo,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 18)),
+                  style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 18))),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
               child: Text(widget.todos.description,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 15)),
+                  style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 15))),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,11 +77,11 @@ class _viewNoteScreenState extends State<ViewNoteBottomSheet> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
-                      children: const [
-                        Icon(Icons.done, size: 33, color: Colors.white),
-                        Padding(padding: EdgeInsets.only(top: 10)),
+                      children:[
+                        const Icon(Icons.done, size: 33, color: Colors.white),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
                         Text("DONE",
-                            style: TextStyle(color: Colors.white, fontSize: 14))
+                            style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 14))),
                       ],
                     ),
                   ),
@@ -105,11 +106,11 @@ class _viewNoteScreenState extends State<ViewNoteBottomSheet> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
-                      children: const [
-                        Icon(Icons.edit, size: 33, color: Colors.white),
-                        Padding(padding: EdgeInsets.only(top: 10)),
+                      children: [
+                        const Icon(Icons.edit, size: 33, color: Colors.white),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
                         Text("EDIT",
-                            style: TextStyle(color: Colors.white, fontSize: 14))
+                            style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 14))),
                       ],
                     ),
                   ),
@@ -151,11 +152,10 @@ class _viewNoteScreenState extends State<ViewNoteBottomSheet> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.max,
-                      children: const [
-                        Icon(Icons.delete, size: 33, color: Colors.white),
-                        Padding(padding: EdgeInsets.only(top: 10)),
-                        Text("DELETE",
-                            style: TextStyle(color: Colors.white, fontSize: 14))
+                      children: [
+                        const Icon(Icons.delete, size: 33, color: Colors.white),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
+                        Text("DELETE", style: GoogleFonts.poppins(textStyle:const TextStyle(color: Colors.white, fontSize: 14))),
                       ],
                     ),
                   ),
@@ -170,8 +170,8 @@ class _viewNoteScreenState extends State<ViewNoteBottomSheet> {
                   minWidth: 189,
                   height: 37,
                   color: Colors.white,
-                  child: const Text("SUBMIT",
-                      style: TextStyle(fontSize: 16, color: Color(0xff429591))),
+                  child: Text("SUBMIT",
+                      style: GoogleFonts.poppins(textStyle:const TextStyle(fontSize: 16, color: Color(0xff429591)))),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0)),
                   onPressed: () {

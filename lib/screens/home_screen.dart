@@ -2,6 +2,7 @@ import 'package:anarusadze_todo_app/logic/provider/todos_provider.dart';
 import 'package:anarusadze_todo_app/widgets/bottom_sheets/add_note_bottomsheet.dart';
 import 'package:anarusadze_todo_app/widgets/bottom_sheets/view_note_bottomsheet.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -48,11 +49,11 @@ class _HomeScreenState extends State<HomeScreen>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("TODO APP",
-                            style: TextStyle(
+                      Text("TODO APP",
+                          style: GoogleFonts.poppins(textStyle:const TextStyle(
                                 fontSize: 32,
                                 color: Color(0xff707070),
-                                fontWeight: FontWeight.bold)),
+                                fontWeight: FontWeight.bold))),
                         FloatingActionButton(
                           onPressed: () {
                             showModalBottomSheet<void>(
@@ -99,8 +100,8 @@ class _HomeScreenState extends State<HomeScreen>
                                   );
                                 },
                                 contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                                title: Text(todos[index].todo),
-                                subtitle: Text(todos[index].description),
+                                title: Text(todos[index].todo, style: GoogleFonts.poppins()) ,
+                                subtitle: Text(todos[index].description, style: GoogleFonts.poppins()),
                                 trailing: SizedBox(
                                   height: 40,
                                   width: 40,

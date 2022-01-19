@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'home_screen.dart';
 
@@ -41,7 +42,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0)),
                 color: const Color(0xff04a3a3),
-                child: const Text("LOGIN", style: TextStyle(fontSize: 16, color: Colors.black)),
+                child: Text("LOGIN",style: GoogleFonts.poppins(textStyle:const TextStyle(fontSize: 16, color: Colors.black))),
                 textColor: CupertinoColors.white,
                 onPressed: () {
                   Navigator.of(context).pushNamed(HomeScreen.routeName);

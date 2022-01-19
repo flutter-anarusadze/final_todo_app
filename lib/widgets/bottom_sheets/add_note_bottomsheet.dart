@@ -1,6 +1,7 @@
 import 'package:anarusadze_todo_app/data/models/todos.dart';
 import 'package:anarusadze_todo_app/logic/provider/todos_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AddNoteBottomSheet extends StatefulWidget {
@@ -33,7 +34,7 @@ class _AddNoteScreenState extends State<AddNoteBottomSheet> {
               TextFormField(
                 controller: _idController,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontSize: 24),
+                style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.white, fontSize: 24)),
                 decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
@@ -61,7 +62,7 @@ class _AddNoteScreenState extends State<AddNoteBottomSheet> {
               TextFormField(
                 controller: _titleController,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontSize: 24),
+                style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.white, fontSize: 24)),
                 decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
@@ -85,7 +86,7 @@ class _AddNoteScreenState extends State<AddNoteBottomSheet> {
               TextFormField(
                 controller: _descriptionController,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontSize: 24),
+                style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.white, fontSize: 24)),
                 decoration: const InputDecoration(
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.white),
@@ -114,8 +115,8 @@ class _AddNoteScreenState extends State<AddNoteBottomSheet> {
                     minWidth: 189,
                     height: 37,
                     color: Colors.white,
-                    child: const Text("SUBMIT",
-                        style: TextStyle(fontSize: 16, color: Color(0xff429591))),
+                    child: Text("SUBMIT",
+                        style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 16, color: Color(0xff429591)))),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0)),
                     onPressed: () {
