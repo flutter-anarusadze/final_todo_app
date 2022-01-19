@@ -27,26 +27,20 @@ class _LogInScreenState extends State<LogInScreen> {
               MaterialButton(
                 minWidth: 189,
                 height: 37,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                 color: const Color(0xff04a3a3),
                 textColor: CupertinoColors.white,
                 onPressed: () {},
               ),
-              const Padding(
-                  padding:
-                      EdgeInsets.only(top: 30)),
+              const Padding( padding: EdgeInsets.only(top: 30)),
               MaterialButton(
                 minWidth: 189,
                 height: 37,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                 color: const Color(0xff04a3a3),
                 child: Text("LOGIN",style: GoogleFonts.poppins(textStyle:const TextStyle(fontSize: 16, color: Colors.black))),
                 textColor: CupertinoColors.white,
-                onPressed: () {
-                  Navigator.of(context).pushNamed(HomeScreen.routeName);
-                },
+                onPressed: () {Navigator.of(context).pushNamed(HomeScreen.routeName);},
               )
             ],
           ),

@@ -7,7 +7,7 @@ class TodoRepository {
   Dio dio = Dio();
 
   Future<List<Todos>?>? getTodos() async {
-    final response = await dio.get('http://192.168.1.17:8080/todos');
+    final response = await dio.get('http://10.0.2.2:8080/todos');
     var todos = <Todos>[];
     if (response.statusCode == 200) {
       response.data.forEach((todoJson) {
@@ -20,7 +20,7 @@ class TodoRepository {
   }
 
   Future<List<Todos>?>? getTodoByID(int id) async {
-    final response = await dio.get('http://192.168.1.17:8080/todo/$id');
+    final response = await dio.get('http://10.0.2.2:8080/todo/$id');
     var todos = <Todos>[];
     if (response.statusCode == 200) {
       response.data.forEach((todoJson) {
@@ -33,18 +33,18 @@ class TodoRepository {
   }
 
   Future<List<Todos>?>? addTodo(Todos todos) async {
-    await dio.post('http://192.168.1.17:8080/add-todo', data: todos.toJson());
+    await dio.post('http://10.0.2.2:8080/add-todo', data: todos.toJson());
   }
 
   Future<List<Todos>?>? deleteTodo(int id) async {
-    await dio.delete('http://192.168.1.17:8080/delete-todo/$id');
+    await dio.delete('http://10.0.2.2:8080/delete-todo/$id');
   }
 
   Future<List<Todos>?>? updateTodo(Todos todos) async {
-    await dio.put('http://192.168.1.17:8080/update-todo', data: todos.toJson());
+    await dio.put('http://10.0.2.2:8080/update-todo', data: todos.toJson());
   }
 
   Future<List<Todos>?>? todoDone(int id) async {
-    await dio.patch('http://192.168.1.17:8080/todo-done/$id');
+    await dio.patch('http://10.0.2.2:8080/todo-done/$id');
   }
 }

@@ -1,12 +1,12 @@
 import 'package:anarusadze_todo_app/logic/provider/todos_provider.dart';
-import 'package:anarusadze_todo_app/widgets/bottom_sheets/add_note_bottomsheet.dart';
-import 'package:anarusadze_todo_app/widgets/bottom_sheets/view_note_bottomsheet.dart';
+import 'package:anarusadze_todo_app/widgets/bottom_sheets/todo_add_bottomsheet.dart';
+import 'package:anarusadze_todo_app/widgets/item/todo_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   static const routeName = '/home_screen';
 
@@ -16,6 +16,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+
+
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 1),
     vsync: this,
@@ -50,16 +52,14 @@ class _HomeScreenState extends State<HomeScreen>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                       Text("TODO APP",
-                          style: GoogleFonts.poppins(textStyle:const TextStyle(
-                                fontSize: 32,
-                                color: Color(0xff707070),
+                          style: GoogleFonts.poppins(textStyle:const TextStyle(fontSize: 32, color: Color(0xff707070),
                                 fontWeight: FontWeight.bold))),
                         FloatingActionButton(
                           onPressed: () {
                             showModalBottomSheet<void>(
                               context: context,
                               builder: (BuildContext context) {
-                                return AddNoteBottomSheet();
+                                return TodoAddBottomSheet();
                               },
                             );
                           },
@@ -85,37 +85,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 topRight: Radius.circular(20))),
                         child: ListView.builder(
                           itemBuilder: (ctx, index) {
-                            return Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0)),
-                              margin: const EdgeInsets.all(24),
-                              child: ListTile(
-                                onTap: () {
-                                  showModalBottomSheet<void>(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return ViewNoteBottomSheet(
-                                          todos: todos[index]);
-                                    },
-                                  );
-                                },
-                                contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                                title: Text(todos[index].todo, style: GoogleFonts.poppins()) ,
-                                subtitle: Text(todos[index].description, style: GoogleFonts.poppins()),
-                                trailing: SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: FloatingActionButton(
-                                    elevation: 0,
-                                    onPressed: () {},
-                                    backgroundColor: (todos[index].isDone)
-                                        ? const Color(0xff0ecc57)
-                                        : const Color(0xff969897),
-                                    child: const Icon(Icons.done),
-                                  ),
-                                ),
-                              ),
-                            );
+                            return TodoItem(todos: todos[index]);
                           },
                           itemCount: todos.length,
                         ),
