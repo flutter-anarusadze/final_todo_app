@@ -40,4 +40,12 @@ class TodosProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+  void todoDone(int id) async {
+    await todoRepository.todoDone(id);
+    var todo = _todos.firstWhere((element) => element.id == id);
+    var index = _todos.indexOf(todo);
+    _todos[index] = todo;
+    notifyListeners();
+  }
+
 }

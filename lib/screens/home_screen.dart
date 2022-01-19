@@ -1,9 +1,7 @@
 import 'package:anarusadze_todo_app/logic/provider/todos_provider.dart';
-import 'package:anarusadze_todo_app/widgets/add_note_bottomsheet.dart';
-import 'package:anarusadze_todo_app/widgets/view_note_bottomsheet.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:anarusadze_todo_app/widgets/bottom_sheets/add_note_bottomsheet.dart';
+import 'package:anarusadze_todo_app/widgets/bottom_sheets/view_note_bottomsheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -85,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     showModalBottomSheet<void>(
                                       context: context,
                                       builder: (BuildContext context) {
-                                        return viewNoteBottomSheet(todos[index]);
+                                        return ViewNoteBottomSheet(todos: todos[index]);
                                       },
                                     );
                                   },
@@ -99,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: FloatingActionButton(
                                       elevation: 0,
                                       onPressed: () {},
-                                      backgroundColor: const Color(0xff969897),
+                                      backgroundColor: (todos[index].isDone) ? const Color(0xff0ecc57) : const Color(0xff969897)  ,
                                       child: const Icon(Icons.done),
                                     ),
                                   ),

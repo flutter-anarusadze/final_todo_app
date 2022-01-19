@@ -1,31 +1,31 @@
-import 'dart:ffi';
-
 class Todos {
   final int id;
   final String todo;
-  final String description;
   final bool isDone;
+  final String description;
+
 
   Todos({
     required this.id,
     required this.todo,
-    required this.description,
     required this.isDone,
+    required this.description,
+
   });
 
   factory Todos.fromJson(Map<String, dynamic> json) {
     return Todos(
         id: json['id'],
         todo: json['todo'],
+        isDone: json['isDone'],
         description: json['description'],
-        isDone: json['isDone']
     );
   }
 
   Map<String, dynamic> toJson() => {
     'id': id,
     'todo': todo,
-    'description': description,
-    'isDone': isDone
+    'isDone': isDone,
+    'description': description
   };
 }

@@ -4,23 +4,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AddNoteBottomSheet extends StatefulWidget {
-  AddNoteBottomSheet({Key? key}) : super(key: key);
+class EditNoteBottomSheet extends StatefulWidget {
+  final Todos todos;
+  const EditNoteBottomSheet({ Key? key, required this.todos}): super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _AddNoteScreenState();
+  State<StatefulWidget> createState() => _editNoteScreenState(todos);
 
 }
-class _AddNoteScreenState extends State<AddNoteBottomSheet> {
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _idController = TextEditingController();
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
+class _editNoteScreenState extends State<EditNoteBottomSheet> {
+  _editNoteScreenState(Todos todos);
 
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-
+    final TextEditingController _idController = TextEditingController(text: widget.todos.id.toString());
+    final TextEditingController _titleController = TextEditingController(text: widget.todos.todo);
+    final TextEditingController _descriptionController = TextEditingController(text: widget.todos.description);
     return Container(
       padding: const EdgeInsets.all(30),
       height: 500,
@@ -128,7 +129,7 @@ class _AddNoteScreenState extends State<AddNoteBottomSheet> {
                               todo: _titleController.text,
                               description: _descriptionController.text,
                               isDone: false);
-                          Provider.of<TodosProvider>(context).addTodo(todos);
+                          Provider.of<TodosProvider>(context, listen: false).updateTodos(todos);
                           Navigator.pop(context);
                         }
                       });
